@@ -1,0 +1,17 @@
+.feature-section{
+    padding-left:130px;
+    padding-right: 130px;
+    padding-bottom: 130px;
+    background-color: var(--primary-color);
+}
+.heading{
+    color: white;
+    text-transform: uppercase;
+}
+.heading-latest{
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+.sub-text{
+    color: var(--primary-color);
+}

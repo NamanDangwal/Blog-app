@@ -1,0 +1,8 @@
+
+.bg-theam{
+    background-color: var(--primary-color);
+}
+.heading{
+    color: white;
+    text-transform: uppercase;
+}
