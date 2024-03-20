@@ -2,3 +2,10 @@
     min-height: 35vh;
     margin-top: 150px;
 }
+
+.footer{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-top:auto;
+}
