@@ -20,6 +20,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { PastCardComponent } from './layouts/past-card/past-card.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import { TermsAndConditionComponent } from './shared/terms-and-condition/terms-and-condition.component';
+import { ContactUsComponent } from './shared/contact-us/contact-us.component';
+import { AboutComponent } from './shared/about/about.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import {MatCardModule} from '@angular/material/card';
     CommentListComponent,
     AboutUsComponent,
     PastCardComponent,
+    TermsAndConditionComponent,
+    ContactUsComponent,
+    AboutComponent,
     
 
   ],

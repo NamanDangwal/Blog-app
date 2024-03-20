@@ -15,6 +15,9 @@ import { CategoriesComponent } from './categories/categories.component';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AboutComponent } from './shared/about/about.component';
+import { ContactUsComponent } from './shared/contact-us/contact-us.component';
+import { TermsAndConditionComponent } from './shared/terms-and-condition/terms-and-condition.component';
 
 
 @NgModule({
@@ -24,6 +27,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
     DashboardComponent,
     CategoriesComponent,
+    AboutComponent,
+    ContactUsComponent,
+    TermsAndConditionComponent,
   
   ],
   imports: [
