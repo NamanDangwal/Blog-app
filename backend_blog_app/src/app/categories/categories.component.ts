@@ -9,8 +9,21 @@ import { CategoryService } from '../#Services/category.service';
 })
 export class CategoriesComponent {
 
-  constructor(private service : CategoryService){
-     
+  categoryArray:any;
+  fromCategory:any;
+  formStatus:string =  'Add';
+  ctaegoryId:any;
+  
+  constructor(private CategoryService : CategoryService){
+    
+  }
+
+  ngOnInit(){
+    this.CategoryService.loadData().subscribe(val =>{
+      console.log(val);
+      this.categoryArray = val;
+      console.log(this.categoryArray)
+    })
   }
 
   onSubmit(formData:any){
@@ -18,10 +31,25 @@ export class CategoriesComponent {
       category: formData.value
     }
     console.log("Category Data",categoryData);
-
-    this.service.saveData(categoryData);
+    if (this.formStatus == "Edit") {
+      this.CategoryService.updateData(this.ctaegoryId,categoryData);
+    }
+    else{
+    this.CategoryService.saveData(categoryData);
     formData.reset();
-    
+    this.formStatus = 'Add';
+    }
+  }
+
+  edit(category: any , id:any){
+    this.fromCategory=category.categories
+    this.formStatus = 'Edit'
+    this.ctaegoryId =id;
+    console.log(this.ctaegoryId)
+  }
+
+  delete(id:any){
+    this.CategoryService.deleteData(id)
   }
 
 }
