@@ -18,6 +18,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutComponent } from './shared/about/about.component';
 import { ContactUsComponent } from './shared/contact-us/contact-us.component';
 import { TermsAndConditionComponent } from './shared/terms-and-condition/terms-and-condition.component';
+import { PostpageComponent } from './postpage/postpage.component';
+import { NewPostComponent } from './new-post/new-post.component';
+
 
 
 @NgModule({
@@ -30,6 +33,9 @@ import { TermsAndConditionComponent } from './shared/terms-and-condition/terms-a
     AboutComponent,
     ContactUsComponent,
     TermsAndConditionComponent,
+    PostpageComponent,
+    NewPostComponent
+    
   
   ],
   imports: [
