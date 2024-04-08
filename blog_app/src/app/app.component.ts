@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'blog_app';
+
+  navbarfixed:boolean = true;
+
+
+  @HostListener('window:scroll', ['$event']) onScroll(){
+    if (window.scrollY > 100){
+      this.navbarfixed = true;
+    }
+    else{
+      this.navbarfixed = true;
+    }
+  }
 }

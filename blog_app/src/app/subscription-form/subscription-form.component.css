@@ -1,6 +1,7 @@
 .containor{
+    padding:5px;
    text-align: center;
-   height: 205px;
+   height: 215px;
    background-color: var(--secondary-color);
 }
 .heading h1{

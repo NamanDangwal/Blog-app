@@ -1,8 +1,12 @@
+<div (scroll)="onScroll()"  [ngClass]="navbarfixed?'position: fixed; width: 100%; transition: 0.2s linear; top:0px;':'position: static;transition: 0.2s linear;top:-50px;'">
+    <app-header></app-header>
+    <app-category-navbar></app-category-navbar>
+</div>
 
-<app-header></app-header>
-<app-category-navbar></app-category-navbar>
 <div class="body">
     <router-outlet></router-outlet> 
 </div>
-<app-subscription-form></app-subscription-form>
-<app-footer></app-footer>
+<div class="footer">
+    <app-subscription-form></app-subscription-form>
+    <app-footer></app-footer>
+</div>

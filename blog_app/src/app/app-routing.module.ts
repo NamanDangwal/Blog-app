@@ -11,7 +11,6 @@ const routes: Routes = [
   {path:'', component:HomeComponent},
   {path:'category', component:SingleCategoryComponent},
   {path:'post', component:SinglePostComponent},
-
   {path:'about-us', component:AboutUsComponent},
   {path:'terms-conditions', component:TermsAndConditionsComponent},
   {path:'contact',component:ContectUsComponent}
