@@ -1,14 +1,20 @@
 <div class="container">
+
+    <div class="text-center mb-5">
+        <h2 class="text-theme-primary">
+            Add New Post</h2>
+        <p class="text-theme-primary" >you can add new post here</p>
+    </div>
     <div class=" row m-2">
         <!-- <div class="col-md-2"></div> -->
         <div class=" shadow-effect rounded-2 p-2 col-md-6">
             <div>
                 <label for="title">Title</label>
-                <input id="title" class="form-control" type="text"/>
+                <input id="title" class="form-control" type="text" name="title"  (keyup)="permatext($event)"/>
             </div> 
             <div>
                 <label for="Permalink">Permalink</label>
-                <input id="Permalink" class="form-control " type="text"/>
+                <input id="Permalink" class="form-control " name="permalink"  type="text" [(ngModel)]="paramatext" disabled />
             </div> 
             <div>
                 <label for="Expert">Expert</label>
@@ -18,16 +24,16 @@
         <div class="col-md-6">
             <div>
                 <label for="cetegory">Plese select a post cetegory</label>
-                <select id="cetegory" class="form-control ">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="fiat">Fiat</option>
-                    <option value="audi">Audi</option>
+                <select  id="cetegory" class="form-control ">
+                    <option value="" disable> Please select a category</option>
+                    <option *ngFor="let category of categories" value="">{{category.data.category.categories}}</option>
+
                 </select>
             </div> 
         <div class="mt-2">
-            <label for="image">Select an image:</label><br>
-            <input xlass="mt-2" type="file" id="image" name="image" accept="image/*"><br><br>
+            <label for="image">Select an image:</label>
+            <img [src]="imgsrc" class="form-control img-fluid img-preview">
+            <input class="mt-2" type="file" id="image" name="image" accept="image/*" (change) = "showPreview($event)">
             <!-- <input type="submit" value="Upload"> -->
         </div>
         </div>
@@ -40,17 +46,16 @@
         <div class="col-md-12 p-2">
             <div>
                 <label for="Content">Content</label>
-                <textarea id="Content" rows="15" cols="10" class="form-control " type="text">
-
-                </textarea>
+                <!-- <textarea id="Content" rows="15" cols="10" class="form-control " type="text"> -->
+                    <angular-editor rows="15" cols="10" [placeholder]="'Enter text here...'"></angular-editor>
             </div> 
         </div>
         <!-- <div class="col-md-2"></div> -->
     </div>
 
-    <div class="text-center mt-5">
-        <button class="btn btn-block btn-info mb-2 bg-theme-primary text-theme-secondary" routerLink="/newpost" >Add New Post</button>
-        <button class="btn btn-block btn-info mb-2 bg-theme-primary text-theme-secondary ml-5" routerLink="/">Back To Post</button>
+    <div class="text-center mt-3">
+        <button class="btn btn-block btn-info m-2 bg-theme-primary text-theme-secondary" routerLink="/newpost" >Add New Post</button>
+        <button class="btn btn-block btn-info m-2 bg-theme-primary text-theme-secondary" routerLink="/post">Back To Post</button>
      </div>
 
 </div>
