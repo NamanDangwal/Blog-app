@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CategoryService } from '../#Services/category.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-post',
@@ -22,20 +22,23 @@ constructor(
   private fb:FormBuilder
 ){
   this.postForm = this.fb.group({
-    title: [''],
-    permalink:[''],
-    expert:[''],
-    category:[''],
-    postImg:[''],
-    content:['']
+    title: ['',[Validators.required,Validators.minLength(10)]],
+    permalink:['',[Validators.required]],
+    expert:['',[Validators.required,Validators.minLength(50)]],
+    category:['',[Validators.required,]],
+    postImg:['',[Validators.required]],
+    content:['',[Validators.required]]
   })
 }
+
 
 ngOnInit(){
   this.service.loadData().subscribe(res =>{
     this.categories = res;
   })
 }
+
+
   permatext($event:any){
     // console.log($event.target.value);
     this.paramatext =  $event.target.value.replace(/\s/g , "-");
