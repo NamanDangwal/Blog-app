@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CategoryService } from '../#Services/category.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Post } from '../models/post';
 
 @Component({
   selector: 'app-new-post',
@@ -14,21 +15,23 @@ export class NewPostComponent {
   ngModel: any;
   selectedImg:any;
   categories:any;
+  postForm:any;
 
-
-  postForm:FormGroup
 constructor(
   private service: CategoryService,
   private fb:FormBuilder
 ){
-  this.postForm = this.fb.group({
-    title: ['',[Validators.required,Validators.minLength(10)]],
-    permalink:['',[Validators.required]],
-    expert:['',[Validators.required,Validators.minLength(50)]],
-    category:['',[Validators.required,]],
-    postImg:['',[Validators.required]],
-    content:['',[Validators.required]]
-  })
+  this.createForm();
+}
+
+createForm(){ this.postForm = this.fb.group({
+  title: ['',[Validators.required,Validators.minLength(10)]],
+  permalink:['',[Validators.required]],
+  expert:['',[Validators.required,Validators.minLength(50)]],
+  category:['',Validators.required],
+  postImg:['',Validators.required],
+  content:['',Validators.required]
+})
 }
 
 
@@ -36,6 +39,10 @@ ngOnInit(){
   this.service.loadData().subscribe(res =>{
     this.categories = res;
   })
+}
+
+get fc(){
+  return this.postForm.controls
 }
 
 
@@ -62,4 +69,33 @@ ngOnInit(){
 }
 
 // ********************************************************************************8
+onsubmit(){
+
+  let split = this.postForm.value.category.split('-');
+  console.log(split)
+
+  console.log(this.postForm.value);
+
+  const postData: Post={
+    title:this.postForm.value.title,
+    permalink:this.postForm.value.permalink ,
+    category: {
+      categoryId: split[0],
+      category: split[1]
+    },
+    postImgPath: '',
+    excerpt: this.postForm.value.expert,
+    content: this.postForm.value.content,
+    isFeatured: false,
+    views: 0,
+    status: 'new',
+    createdAt: new Date()
+  }
+  console.log(postData);
 }
+
+}
+
+
+
+
